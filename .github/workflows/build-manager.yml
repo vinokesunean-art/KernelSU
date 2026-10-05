@@ -1,6 +1,7 @@
 name: Build Manager
 
 on:
+  workflow_dispatch:
   push:
     branches: [ "main", "dev", "ci" ]
     paths:
@@ -117,7 +118,7 @@ jobs:
       target: ${{ matrix.target }}
       pack_lkm: true
       pack_ksuinit: true
-  
+
   build-ksud-extra:
     needs: [build-lkm, build-ksuinit]
     strategy:
